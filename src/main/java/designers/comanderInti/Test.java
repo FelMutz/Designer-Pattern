@@ -11,6 +11,7 @@ import designers.filter.TestFilter;
 import designers.proxy.ProxyPessoa;
 import designers.proxy.domain.PessoaDomain;
 import designers.proxy.service.PessoaService;
+import designers.responsibility.TestResponsibility;
 import designers.singleton.Car;
 import designers.strategy.Strategy;
 import lombok.AllArgsConstructor;
@@ -65,6 +66,10 @@ public class Test implements CommandLineRunner {
         format();
 
         TestDecorator.testDecorator();
+
+        format();
+
+        TestResponsibility.testResponsibility();
     }
 
     public void testProxy(){
@@ -76,7 +81,7 @@ public class Test implements CommandLineRunner {
 
         IntStream.range(0,10).forEach(
                 x->
-                        pessoasData.add(new PessoaDomain(null, UUID.randomUUID().toString(),12)));
+                        pessoasData.add(PessoaDomain.builder().name(UUID.randomUUID().toString()).age((int)(Math.random()*100 )).build()));
 
         pessoasData.forEach(x->pessoaService.insert(x));
 
