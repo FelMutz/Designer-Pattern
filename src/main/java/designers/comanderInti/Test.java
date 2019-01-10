@@ -1,15 +1,17 @@
-package designers.ComanderInti;
+package designers.comanderInti;
 
 import designers.adapter.AdapterMqttToUdp;
 import designers.adapter.domain.Udp;
 import designers.builder.TestBuilder;
+import designers.decorator.TestDecorator;
 import designers.facade.services.CalcFormula;
 import designers.factory.FactoryPessoa;
 import designers.factory.interfaces.PessoaFactoryInterface;
+import designers.filter.TestFilter;
 import designers.proxy.ProxyPessoa;
 import designers.proxy.domain.PessoaDomain;
 import designers.proxy.service.PessoaService;
-import designers.singleton.Carro;
+import designers.singleton.Car;
 import designers.strategy.Strategy;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -55,6 +57,14 @@ public class Test implements CommandLineRunner {
         format();
 
         TestBuilder.testBuilder();
+
+        format();
+
+        TestFilter.testFilter();
+
+        format();
+
+        TestDecorator.testDecorator();
     }
 
     public void testProxy(){
@@ -103,15 +113,15 @@ public class Test implements CommandLineRunner {
     public void singleton(){
         System.out.println("Singleton Teste");
 
-        Carro carro = Carro.getINSTANCE();
+        Car car = Car.getINSTANCE();
 
-        System.out.println(carro);
-        System.out.println(Carro.getINSTANCE());
+        System.out.println(car);
+        System.out.println(Car.getINSTANCE());
 
-        System.out.println(Carro.getINSTANCE().getAcaoPublic());
+        System.out.println(Car.getINSTANCE().getAcaoPublic());
 
-        Carro.getINSTANCE().andarParaFrente();
-        System.out.println(carro.getAcaoPublic());
+        Car.getINSTANCE().andarParaFrente();
+        System.out.println(car.getAcaoPublic());
     }
 
     public void adapter(){

@@ -3,18 +3,18 @@ package designers.singleton;
 import lombok.Data;
 
 @Data
-public final class Carro {
+public final class Car {
 
-    private static Carro INSTANCE;
+    private static Car INSTANCE;
     private static String acao;
 
-    private Carro(){
+    private Car(){
         acao = "Parado";
     }
 
-    public static synchronized Carro getINSTANCE(){
+    public static synchronized Car getINSTANCE(){
         if (INSTANCE == null){
-            INSTANCE = new Carro();
+            INSTANCE = new Car();
         }
         return INSTANCE;
     }

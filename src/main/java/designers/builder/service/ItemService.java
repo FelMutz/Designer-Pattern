@@ -23,10 +23,14 @@ public class ItemService {
 
     public void showItems(){
 
-        for (Item item : items) {
-            System.out.print("Item : " + item.name());
-            System.out.print(", Packing : " + item.packing().pack());
-            System.out.println(", Price : " + item.price());
-        }
+        items.forEach(x->{
+            System.out.print("Item : " + x.name());
+            System.out.print(", Packing : " + x.packing().pack());
+            System.out.println(", Price : " + x.price());
+        });
+    }
+
+    public List<Item> setListItens(){
+        return items;
     }
 }
