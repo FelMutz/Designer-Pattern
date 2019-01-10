@@ -8,6 +8,7 @@ import designers.facade.services.CalcFormula;
 import designers.factory.FactoryPessoa;
 import designers.factory.interfaces.PessoaFactoryInterface;
 import designers.filter.TestFilter;
+import designers.observer.TestObserver;
 import designers.proxy.ProxyPessoa;
 import designers.proxy.domain.PessoaDomain;
 import designers.proxy.service.PessoaService;
@@ -70,6 +71,10 @@ public class Test implements CommandLineRunner {
         format();
 
         TestResponsibility.testResponsibility();
+
+        format();
+
+        TestObserver.testObserver();
     }
 
     public void testProxy(){
